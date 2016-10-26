@@ -1,0 +1,37 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel test suite" parallel="methods" thread-count="2" >
+
+
+    <test name="Issue">
+        <groups>
+            <run>
+                <include name="Issue"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="MyIssue"/>
+        </classes>
+    </test>
+
+    <test name="Search">
+        <groups>
+            <run>
+                <include name="Search"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="MyIssue"/>
+        </classes>
+    </test>
+
+    <test name="Comment">
+        <groups>
+            <run>
+                <include name="Comment"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="MyIssue"/>
+        </classes>
+    </test>
+</suite>
