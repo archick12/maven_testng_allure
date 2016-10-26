@@ -3,6 +3,8 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.Response;
 import fixture.JiraJSONFixture;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Parameter;
 import utils.RequestSender;
 
 import static org.testng.Assert.assertEquals;
@@ -13,8 +15,11 @@ public class MyIssue {
     JiraJSONFixture jiraJSONFixture = new JiraJSONFixture();
 
 
+    @Features("My Feature")
     @Test(groups = {"Issue", "Search", "Comment"})
-    public void login() {
+    public void login(@Parameter int user, @Parameter int pass) {
+
+
 
         RequestSender requestSender = new RequestSender();
         long id = Thread.currentThread().getId();
@@ -29,6 +34,7 @@ public class MyIssue {
 
     }
 
+    @Features("My Feature")
     @Test(groups = {"Issue"}, dependsOnMethods = {"login"})
     public void DeleteIssue() {
         String sessionId = "";
@@ -61,6 +67,7 @@ public class MyIssue {
 
     }
 
+    @Features("My Feature")
     @Test(groups = {"Issue"}, dependsOnMethods = {"login"})
     public void CreateIssue() {
         String sessionId = "";
@@ -90,6 +97,7 @@ public class MyIssue {
 
     }
 
+    @Features("My Feature")
     @Test(groups = {"Issue"}, dependsOnMethods = {"login"})
     public void getIssue() {
         String sessionId = "";
@@ -128,7 +136,7 @@ public class MyIssue {
 
     }
 
-
+    @Features("My Feature2")
     @Test(enabled = false, groups = {"Issue"}, dependsOnMethods = {"login"})
     public void editSummary() {
         String sessionId = "";
@@ -170,7 +178,7 @@ public class MyIssue {
 
 
     }
-
+    @Features("My Feature2")
     @Test(enabled = false, dependsOnMethods = {"login"}, groups = {"Issue"})
     public void changeIssueType() {
         String sessionId = "";
@@ -214,7 +222,7 @@ public class MyIssue {
 
 
     }
-
+    @Features("My Feature2")
     @Test(groups = {"Search"}, dependsOnMethods = {"login"})
     public void searchFilter() {
         String sessionId = "";
@@ -248,7 +256,7 @@ public class MyIssue {
         // assertTrue(deleteIssueResponse.contentType().contains(ContentType.JSON.toString()));
 
     }
-
+    @Features("My Feature2")
     @Test(enabled = false, dependsOnMethods = {"login"}, groups = {""})
     public void Assign()
     // create issue
@@ -291,7 +299,7 @@ public class MyIssue {
         assertTrue(deleteIssueResponse.contentType().contains(ContentType.JSON.toString()));
 
     }
-
+    @Features("My Feature2")
     @Test(groups = {"Comment"}, dependsOnMethods = {"login"})
     public void addComment() {
         String sessionId = "";
