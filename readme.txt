@@ -52,3 +52,4 @@
 </reporting>
 
 4. mvn test
+5. mvn site
